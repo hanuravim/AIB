@@ -17,11 +17,9 @@
         },
         "customize": [
             {
-                "type": "powershell",
-                "inline": [
-                    New-Item –Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer
-                    New-ItemProperty HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer -Name "AlwaysInstallElevated" -Value 0 -PropertyType DWord
-                ]
+                "type": "PowerShell",
+                "name": "STIG SV-88249r1_rule",
+                "inline": "New-Item –Path HKCU:/SOFTWARE/Policies/Microsoft/Windows/Installer"
             }
         ],
         "distribute": [
