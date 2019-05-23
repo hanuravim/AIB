@@ -69,7 +69,7 @@ az resource invoke-action `
 az vm create `
   --resource-group $imageResourceGroup `
   --name aibImage `
-  --admin-username $applicationId `
+  --admin-username aibuser `
   --admin-password $vmpassword `
   --image $imageName `
   --location $location
