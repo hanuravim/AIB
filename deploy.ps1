@@ -1,8 +1,8 @@
 # Azure Login
-$applicationId =  "”;
-$securePasswordAz = ""
-$tenantId = ‘'
-$subscriptionID = ‘’
+$applicationId =  ''
+$securePasswordAz = ''
+$tenantId = ''
+$subscriptionID = ''
 az login --allow-no-subscriptions --service-principal -u $applicationId --password $securePasswordAz --tenant $tenantId --subscription $subscriptionID
 az account set --subscription $subscriptionID 
 
