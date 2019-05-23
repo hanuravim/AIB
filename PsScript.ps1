@@ -1,1 +1,1 @@
-New-Item –Path "HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer"
+New-Item –Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer"
