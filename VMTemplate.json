@@ -1,19 +1,16 @@
 {
-    "type": "Microsoft.VirtualMachineImages/imageTemplates",
+    "type": "Microsoft.VirtualMachineImages",
     "apiVersion": "2019-05-01-preview",
-    "location": "<region>",
+    "location": "<region1>",
     "dependsOn": [],
-    "tags": {
-        "imagebuilderTemplate": "windows2016"
-    },
     "properties": {
-        "buildTimeoutInMinutes": 80,
         "source": {
             "type": "PlatformImage",
             "publisher": "MicrosoftWindowsServer",
             "offer": "WindowsServer",
             "sku": "2016-Datacenter",
             "version": "2016.127.20180613"
+            
         },
         "customize": [
             {
@@ -22,16 +19,20 @@
                 "scriptUri": "https://raw.githubusercontent.com/hanuravim/AIB/master/PsScript.ps1"
             }
         ],
-        "distribute": [
-            {
-                "type": "ManagedImage",
-                "imageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>",
-                "location": "<region>",
+        "distribute": 
+        [
+            {   
+                "type": "SharedImage",
+                "galleryImageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>",
                 "runOutputName": "<runOutputName>",
                 "artifactTags": {
-                    "source": "azVmImageBuilder",
+                    "source": "azureVmImageBuilder",
                     "baseosimg": "windows2016"
-                }
+                },
+                "replicationRegions": [
+                  "<region1>",
+                  "<region2>"
+                ]
             }
         ]
     }
